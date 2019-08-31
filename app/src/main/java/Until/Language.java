@@ -3,12 +3,11 @@ package Until;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 
 import java.util.Locale;
 
 public class Language {
-    public static void  setLocale(Context context, String language){
+    public static void setLocale(Context context, String language) {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 

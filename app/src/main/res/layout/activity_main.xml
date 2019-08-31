@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.MainActivity"
     android:orientation="vertical"
     android:padding="5dp"
     android:background="#1FEBD3">
-    <LinearLayout
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="City Name"
-            android:id="@+id/edtSearch"
-            android:textSize="18sp"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:drawableLeft="@drawable/ic_location_on_black_24dp"/>
-    </LinearLayout>
+        android:hint="City Name"
+        android:id="@+id/edtSearch"
+        android:textSize="18sp"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/ic_location_on_black_24dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +26,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/tvCity"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/edtSearch"
         />
     <TextView
         android:layout_width="match_parent"
@@ -37,11 +35,15 @@
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         android:id="@+id/tvCountry"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvCity"
+        />
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:src="@mipmap/ic_launcher"
         android:id="@+id/imgWeather"
@@ -50,92 +52,101 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nhiệt độ"
+        android:text="Temp"
         android:textSize="32sp"
-        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/imgWeather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:textColor="#F13F23"
         android:textStyle="bold"
-        android:id="@+id/tvTemp"/>
+        android:id="@+id/tvTemp"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Clouds"
         android:textSize="32sp"
-        android:layout_gravity="center"
         android:id="@+id/tvStatus"
+        app:layout_constraintTop_toBottomOf="@id/tvTemp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textStyle="bold"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/layout1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:layout_marginTop="20dp">
-        <LinearLayout
-            android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layout2"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus"
+        app:layout_constraintHorizontal_chainStyle="spread">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/wind"/>
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/wind"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Độ ẩm"
-                android:textSize="18sp"
-                android:id="@+id/tvWindy"
-                />
+            android:text="Windy"
+            android:textSize="18sp"
+            android:id="@+id/tvWindy" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/layout1"
+        app:layout_constraintEnd_toStartOf="@id/layout3"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/sweat1"/>
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/sweat1"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Độ ẩm"
-                android:textSize="18sp"
-                android:id="@+id/tvSweat"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/cloud1"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cloud"
-                android:textSize="18sp"
-                android:id="@+id/tvCloud"
-                />
-        </LinearLayout>
+            android:text="Wet"
+            android:textSize="18sp"
+            android:id="@+id/tvSweat" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/layout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/cloud1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cloud"
+            android:textSize="18sp"
+            android:id="@+id/tvCloud" />
+        </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chủ Nhật 2019 - 01 - 08"
+        android:text="Sunday 2019 - 01 - 08"
         android:gravity="center"
         android:textSize="24sp"
         android:layout_marginTop="20dp"
         android:textColor="#EB740B"
         android:id="@+id/tvUpdate"
+        app:layout_constraintTop_toBottomOf="@id/layout1"
         />
     <Button
         android:layout_width="300dp"
@@ -147,5 +158,18 @@
         android:background="@drawable/radius_btn"
         android:id="@+id/btnNextDay"
         android:layout_gravity="center"
-        />
-</LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/tvUpdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-4022182242256653/9017900465">
+    </com.google.android.gms.ads.AdView>
+</androidx.constraintlayout.widget.ConstraintLayout>

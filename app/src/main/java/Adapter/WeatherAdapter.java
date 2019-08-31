@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import Model.Weather;
 
 public class WeatherAdapter extends BaseAdapter {
-    ArrayList<Weather> arr;
+    private ArrayList<Weather> arr;
 
     public WeatherAdapter(ArrayList<Weather> arr, Context context) {
         this.arr = arr;
         this.context = context;
     }
 
-    Context context;
+    private Context context;
 
     @Override
     public int getCount() {

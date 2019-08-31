@@ -1,9 +1,9 @@
 package Model;
 
 public class Weather {
-    protected String Date;
-    protected String Status;
-    protected String imgae;
+    private String Date;
+    private String Status;
+    private String imgae;
 
     public String getDate() {
         return Date;
@@ -20,7 +20,7 @@ public class Weather {
         return temp;
     }
 
-    protected String temp;
+    private String temp;
 
     public Weather(String date, String status, String imgae, String temp) {
         Date = date;
