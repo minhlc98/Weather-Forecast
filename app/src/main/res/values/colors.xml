@@ -7,4 +7,7 @@
     <color name="blue">#736EE9</color>
     <color name="yellow">#FFF200</color>
     <color name="blue100">#53C8F3</color>
+    <color name="black">#000000</color>
+    <color name="red">#F80808</color>
+    <color name="green">#00BB00</color>
 </resources>

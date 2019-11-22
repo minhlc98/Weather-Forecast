@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Oops"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_24"
+        android:textColor="@color/red"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Internet Connected !"
+        android:textSize="@dimen/text_size_16"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        />
+    <Button
+        android:id="@+id/btnTryAgain"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_button_try_again"
+        android:layout_marginTop="16dp"
+        android:text="@string/try_again"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16"/>
+
+
+</LinearLayout>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:hint="City Name"
         android:id="@+id/edtSearch"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_16"
         android:imeOptions="actionSearch"
         android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="City: "
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_16"
         android:layout_marginTop="5dp"
         android:id="@+id/tvCity"
         android:textStyle="bold"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="Country: "
         android:layout_marginTop="5dp"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_16"
         android:id="@+id/tvCountry"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/tvCity"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Temp"
-        android:textSize="32sp"
+        android:textSize="@dimen/text_size_32"
         app:layout_constraintTop_toBottomOf="@id/imgWeather"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Clouds"
-        android:textSize="32sp"
+        android:textSize="@dimen/text_size_32"
         android:id="@+id/tvStatus"
         app:layout_constraintTop_toBottomOf="@id/tvTemp"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +108,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/sweat1"/>
+            android:src="@drawable/sweat"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:text="Sunday 2019 - 01 - 08"
         android:gravity="center"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_24"
         android:layout_marginTop="20dp"
         android:textColor="#EB740B"
         android:id="@+id/tvUpdate"
@@ -161,15 +161,15 @@
         app:layout_constraintTop_toBottomOf="@id/tvUpdate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-4022182242256653/9017900465">
-    </com.google.android.gms.ads.AdView>
+<!--    <com.google.android.gms.ads.AdView-->
+<!--        xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/adView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        ads:layout_constraintBottom_toBottomOf="parent"-->
+<!--        ads:layout_constraintStart_toStartOf="parent"-->
+<!--        ads:layout_constraintEnd_toEndOf="parent"-->
+<!--        ads:adSize="BANNER"-->
+<!--        ads:adUnitId="ca-app-pub-4022182242256653/9017900465">-->
+<!--    </com.google.android.gms.ads.AdView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

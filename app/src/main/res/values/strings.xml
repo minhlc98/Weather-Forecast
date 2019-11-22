@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
+    <string name="ApiKey">a2f46662e9a34a86b328ddf41e420b64</string>
+    <string name="location_not_found">LOCATION NOT FOUND</string>
+    <string name="note">Please turn on Location Services. For the best experience, please set it to High Accuracy</string>
+    <string name="got_it">GOT IT</string>
+    <string name="fail_to_load_data">Fail to load data</string>
+    <string name="city_not_found">The city name not found</string>
+    <string name="try_again">Try again</string>
 </resources>

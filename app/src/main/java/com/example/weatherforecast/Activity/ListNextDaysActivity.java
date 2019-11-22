@@ -1,49 +1,37 @@
 package com.example.weatherforecast.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.weatherforecast.R;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import Adapter.WeatherAdapter;
 import Api.RetrofitClient;
 import Model.Weather;
-import Until.Language;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
-public class ListNextDaysActivity extends AppCompatActivity {
+public class ListNextDaysActivity extends BaseActivity {
     ArrayList<Weather> listWeather;
     ListView list;
     WeatherAdapter adapter;
-    final String api = "a2f46662e9a34a86b328ddf41e420b64";
+    ProgressDialog progress;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_list_next_days);
-        Language.setLocale(this, "en");
         Mapping();
         Intent intent = getIntent();
         String cityName = intent.getStringExtra("cityName");
@@ -51,9 +39,10 @@ public class ListNextDaysActivity extends AppCompatActivity {
     }
 
     public void Mapping() {
+        progressDialog();
         listWeather = new ArrayList<>();
-        list =  findViewById(R.id.list);
-        adapter = new WeatherAdapter(listWeather, getApplicationContext());
+        list = findViewById(R.id.list);
+        adapter = new WeatherAdapter(listWeather, this);
         list.setAdapter(adapter);
     }
 
@@ -61,7 +50,7 @@ public class ListNextDaysActivity extends AppCompatActivity {
         RetrofitClient
                 .getInstance()
                 .getApi()
-                .getNextDaysWeather(cityName, "metric", api)
+                .getNextDaysWeather(cityName, "metric", getString(R.string.ApiKey))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<ResponseBody>() {
@@ -94,8 +83,10 @@ public class ListNextDaysActivity extends AppCompatActivity {
                             }
 
                             adapter.notifyDataSetChanged();
+                            progress.cancel();
                         } catch (IOException | JSONException e) {
-                            Toast.makeText(ListNextDaysActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            progress.cancel();
+                            Toast.makeText(ListNextDaysActivity.this, getString(R.string.fail_to_load_data), Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -104,5 +95,10 @@ public class ListNextDaysActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 });
+    }
+    public void progressDialog(){
+        progress = new ProgressDialog(this);
+        progress.setMessage("Loading");
+        progress.show();
     }
 }

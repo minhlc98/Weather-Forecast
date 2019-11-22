@@ -42,19 +42,18 @@ public class WeatherAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder=null;
-        if (convertView==null) {
+        ViewHolder viewHolder = null;
+        if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(R.layout.item_each_day, parent, false);
-            viewHolder=new ViewHolder();
-            viewHolder.tvDate=(TextView) convertView.findViewById(R.id.tvdate);
-            viewHolder.tvStatus=(TextView) convertView.findViewById(R.id.tvStatus_list);
-            viewHolder.tvTemp=(TextView) convertView.findViewById(R.id.tvTemp);
-            viewHolder.imgWeather=(ImageView) convertView.findViewById(R.id.imgWeather_list);
+            viewHolder = new ViewHolder();
+            viewHolder.tvDate = convertView.findViewById(R.id.tvdate);
+            viewHolder.tvStatus = convertView.findViewById(R.id.tvStatus_list);
+            viewHolder.tvTemp = convertView.findViewById(R.id.tvTemp);
+            viewHolder.imgWeather = convertView.findViewById(R.id.imgWeather_list);
             convertView.setTag(viewHolder);
-        }
-        else{
-            viewHolder=(ViewHolder) convertView.getTag();
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.tvDate.setText(arr.get(position).getDate());
         viewHolder.tvStatus.setText(arr.get(position).getStatus());
@@ -62,8 +61,9 @@ public class WeatherAdapter extends BaseAdapter {
         Glide.with(context).load(arr.get(position).getImgae()).into(viewHolder.imgWeather);
         return convertView;
     }
-    public class ViewHolder{
-        TextView tvDate,tvStatus,tvTemp;
+
+    public class ViewHolder {
+        TextView tvDate, tvStatus, tvTemp;
         ImageView imgWeather;
     }
 }
